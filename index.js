@@ -107,19 +107,17 @@ moveRock()
  * Finally, alert "YOU LOSE!" to the player.
  */
 function endGame() {
-  
-  console.log('BOOM')
-  clearInterval(gameInterval)
-while (BLOCKS.length>0){
-GAME.removeChild($('.rock'))}
+  while(ROCKS.length > 0){
+    GAME.removeChild(ROCKS[0]);
+    ROCKS.shift();
+  }
 
-
-   alert('You loose!')
-   window.removeEventListener('keydown', moveDodger)
-
+  clearInterval(gameInterval);
+  window.removeEventListener('keydown', moveDodger);
+  alert("YOU LOSE!");
+  START.innerHTML = 'Play again?'
+  START.style.display = 'inline'
 }
-
-  //START.innerHTML = 'Play again?'
 
 
 function moveDodger(e) {
